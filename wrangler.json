@@ -10,7 +10,33 @@
   "compatibility_date": "2025-02-11",
   "observability": {
     "enabled": true
-  }
+  },
+  "env": {
+    "local": {
+      "vars": {
+        "ENVIRONMENT": "local"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "monitor",
+          "database_id": "05a1a5e2-7981-490f-aea5-bbfeb40998a6" 
+        }
+      ]
+    },
+    "production": {
+      "vars": {
+        "ENVIRONMENT": "production"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "my-database",
+          "database_id": "<your-database-id>"
+        }
+      ]
+    }
+  },
   /**
    * Smart Placement
    * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

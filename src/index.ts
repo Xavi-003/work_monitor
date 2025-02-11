@@ -1,9 +1,13 @@
-import { Hono } from 'hono'
+// src/index.js
+import { Hono } from 'hono';
+import { adminRoutes } from '@/routes/adminRoutes.ts';
 
-const app = new Hono<{ Bindings: CloudflareBindings }>()
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.text('Hello User!')
+  return c.json({ message: "hello!" });
 })
+// Register admin routes
+app.route('/admin', adminRoutes);
 
-export default app
+export default app;
