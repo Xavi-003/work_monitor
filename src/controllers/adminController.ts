@@ -34,4 +34,17 @@ export class AdminController {
             return c.json({ error: 'Failed to fetch admin' }, 500);
         }
     }
+
+    async login(c) {
+        const { email, password } =await c.req.json();
+        try {
+            const admin = await this.adminModel.findByEmail(email);
+            if (!admin) {
+                return c.json({ message: 'Admin not found' }, 404);
+            }
+            return c.json(admin);
+        } catch (error) {
+            return c.json({ error: 'Failed to fetch admin' }, 500);
+        }
+    }
 }
