@@ -2,6 +2,7 @@
 import { Hono } from 'hono';
 import { cors } from "hono/cors";
 import { adminRoutes } from '@/routes/adminRoutes.ts';
+import { clientRoutes } from '@/routes/clientRoutes.ts';
 
 const app = new Hono();
 // CORS middleware
@@ -21,5 +22,7 @@ app.get('/', (c) => {
 })
 // Register admin routes
 app.route('/api/admin', adminRoutes);
+// Register client routes
+app.route('/api/client', clientRoutes);
 
 export default app;
